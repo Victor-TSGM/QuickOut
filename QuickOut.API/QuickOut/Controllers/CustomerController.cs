@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using QuickOut.Application.Users;
+using QuickOut.Application.Customers;
 using QuickOut.Infrastructure.Common;
 using QuickOut.Library;
 
 namespace QuickOut.Controllers
 {
     [ApiController]
-    [Route("user")]
-    public class UserController : VicthorController
+    [Route("customer")]
+    public class CustomerController : VicthorController
     {
-        public UserController(VicthotMediator commands, JwtTokenManager jwtTokenManager) : base(commands, jwtTokenManager)
+        public CustomerController(VicthotMediator commands, JwtTokenManager jwtTokenManager) : base(commands, jwtTokenManager)
         {
         }
 
@@ -20,7 +20,7 @@ namespace QuickOut.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddUser(AddUserCommand command)
+        public async Task<IActionResult> AddCustomer(AddCustomerCommand command)
         {
             try
             {

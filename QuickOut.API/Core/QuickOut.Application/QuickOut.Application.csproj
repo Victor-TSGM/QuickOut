@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <Folder Include="Common\Security\" />
-    <Folder Include="User\EventHandlers\" />
-    <Folder Include="User\Queries\" />
+    <Folder Include="Customers\EventHandlers\" />
+    <Folder Include="Customers\Queries\" />
+    <Folder Include="Users\EventHandlers\" />
+    <Folder Include="Users\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

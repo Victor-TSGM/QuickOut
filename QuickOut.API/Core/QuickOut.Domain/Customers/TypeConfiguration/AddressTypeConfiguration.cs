@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using QuickOut.Domain.Common;
 
-namespace QuickOut.Domain.Users;
+namespace QuickOut.Domain.Customers;
 
 public class AddressTypeConfiguration : IEntityTypeConfiguration<Address>
 {

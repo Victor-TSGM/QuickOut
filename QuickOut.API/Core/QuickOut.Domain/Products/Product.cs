@@ -28,7 +28,6 @@ namespace QuickOut.Domain.Products
 
             return Result<Product>.Success(entity);
         }
-
     }
 
     public enum ProductStatus

@@ -1,11 +1,11 @@
 ﻿using QuickOut.Library;
 
-namespace QuickOut.Domain.Users
+namespace QuickOut.Domain.Customers
 {
     public class Section
     {
         public Guid Id { get; private set; }
-        public User User { get; private set; }
+        public Customer Customer { get; private set; }
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
         public string Token { get; private set; }
@@ -16,7 +16,7 @@ namespace QuickOut.Domain.Users
         }
 
         public static Result<Section> StartSection(
-                User user,
+                Customer customer,
                 DateTime startDate,
                 string token
             )
@@ -24,7 +24,7 @@ namespace QuickOut.Domain.Users
             Section entity = new Section()
             {
                 Id = Guid.NewGuid(),
-                User = user,
+                Customer = customer,
                 StartDate = startDate,
                 Token = token
             };

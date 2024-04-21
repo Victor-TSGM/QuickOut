@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using QuickOut.Domain.Common.Interfaces;
 using QuickOut.Infrastructure.Common;
+using QuickOut.Library;
 using System.Security.Claims;
 
 namespace QuickOut.Controllers

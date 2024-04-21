@@ -1,10 +1,9 @@
 ﻿using QuickOut.Domain.Common;
-using QuickOut.Domain.Common.Interfaces;
 using QuickOut.Library;
 
 namespace QuickOut.Domain.Estabilishments
 {
-    public class Estabilishment : IUser
+    public class Estabilishment
     {
         public Guid Id { get; private set; }
         public string Name { get; private set; }
@@ -15,9 +14,7 @@ namespace QuickOut.Domain.Estabilishments
         public TimeSpan OperationsEnd { get; private set; }
         public string? LogoType { get; private set; }
         public EstabilishmentStatus? Status { get; private set; }
-        public UserRole UserRole { get; private set; }
         public string Email { get; private set; }
-        public string Password { get; private set; }
         public List<Guid>? Products { get; private set; }
 
         protected Estabilishment() { }
@@ -28,8 +25,7 @@ namespace QuickOut.Domain.Estabilishments
             Address address,
             TimeSpan operationStart,
             TimeSpan operationEnd,
-            string email,
-            string password
+            string email
             )
         {
             Estabilishment entity = new Estabilishment()
@@ -40,8 +36,6 @@ namespace QuickOut.Domain.Estabilishments
                 OperationStart = operationStart,
                 OperationsEnd = operationEnd,
                 Email = email,
-                Password = password,
-                UserRole = UserRole.Administrator
             };
 
             return Result<Estabilishment>.Success( entity );
