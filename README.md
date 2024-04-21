@@ -1,4 +1,4 @@
-![QuickOut Banner](assets/images/Banner.png)
+![QuickOut Banner](assets/Banner.png)
 
 ## Description
 
