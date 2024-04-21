@@ -1,0 +1,105 @@
+:root {
+    --main-bg-color: #EFF1F2;
+    --primary-color: #d16c19;
+    --primary-color-light: #c28858;
+    --primary-color-dark: rgb(124, 61, 9);
+    --cancel-color: #e0dfdf;
+    --secondary-color: #272828;
+    --disabled-dark: #383B3E;
+    --sidebar-color: #2f3a54;
+    --navbar-color: #FFFFFF;
+    --tile-menu-color: var(--primary-color);
+    --success-color: #64d664;
+    --danger-color: #990c0c;
+    --warning-color: #e6e61e;
+    --white: #f2ebeb;
+    --text-low-opacity: #5252526a;
+    --light-shadow: 0 2px 4px 2px #696565;
+}
+
+/* Toast */
+.e-toast-danger {
+    background-color: var(--danger-color) !important;
+}
+
+.e-toast-success {
+    background-color: var(--success-color) !important;
+}
+
+.e-toast-info {
+    background-color: var(--primary-color) !important;
+}
+
+.e-toast-warning {
+    background-color: var(--warning-color) !important;
+}
+
+/* Bootstrap */
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-light) !important;
+    border-color: var(--primary-color-light) !important;
+}
+
+
+.btn-cancel,
+.btn-cancel:hover,
+.btn-cancel:active,
+.btn-cancel:visited {
+    background-color: var(--cancel-color) !important;
+    border-color: var(--cancel-color) !important;
+    color: var(--danger-color);
+}
+
+.btn-warning {
+    background-color: var(--warning-color) !important;
+    border-color: var(--warning-color) !important;
+}
+
+.btn-danger {
+    background-color: var(--danger-color) !important;
+    border-color: var(--danger-color) !important;
+}
+
+/* Job */
+
+.jobList::-webkit-scrollbar-thumb {
+    background: var(--bosch-purple-40) !important;
+}
+
+.jobList::-webkit-scrollbar-thumb:hover {
+    background: var(--bosch-purple-40) !important;
+}
+
+.jobCard {
+    background-color: var(--primary-color) !important;
+    color: white;
+}
+
+.jobCard .btn {
+    color: white;
+    background-color: #00000030;
+}
+
+.jobCard .fs-load-bar {
+    background-color: var(--bosch-purple-40) !important;
+}
+
+.jobCard.success {
+    background-color: var(--success-color) !important;
+}
+
+.jobCard.error {
+    background-color: var(--danger-color) !important;
+}
+
+.fs-load-bar {
+    background-color: var(--primary-color) !important;
+}

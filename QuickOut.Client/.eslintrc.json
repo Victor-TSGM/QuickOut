@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "standard-with-typescript",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["react"],
+  "parserOptions": {
+    "project": "./tsconfig-eslint.json"
+  },
+  "rules": {
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "strict": 2
+  }
+}
