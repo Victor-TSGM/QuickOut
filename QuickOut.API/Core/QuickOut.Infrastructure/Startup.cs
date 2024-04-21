@@ -4,18 +4,21 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickOut.Application.Common;
-using QuickOut.Application.Users;
+using QuickOut.Application.Customers;
 using QuickOut.Domain.Estabilishments;
 using QuickOut.Domain.Orders;
 using QuickOut.Domain.Products;
-using QuickOut.Domain.Users;
+using QuickOut.Domain.Customers;
 using QuickOut.Infrastructure.Common;
 using QuickOut.Infrastructure.Estabilishments;
 using QuickOut.Infrastructure.Orders;
 using QuickOut.Infrastructure.Products;
-using QuickOut.Infrastructure.Users;
+using QuickOut.Infrastructure.Customers;
 using QuickOut.Intrastructure.Common;
 using QuickOut.Library;
+using QuickOut.Infrastructure.Users;
+using QuickOut.Domain.Users;
+using QuickOut.Application.Users.Commands;
 
 namespace QuickOut.Infrastructure
 {
@@ -33,10 +36,11 @@ namespace QuickOut.Infrastructure
                 ServiceLifetime.Scoped
             );
 
-            serviceCollection.AddScoped<IUserDbContext>(op => op.GetRequiredService<QuickOutContext>());
+            serviceCollection.AddScoped<ICustomerDbContext>(op => op.GetRequiredService<QuickOutContext>());
             serviceCollection.AddScoped<IEstabilishmentDbContext>(op => op.GetRequiredService<QuickOutContext>());
             serviceCollection.AddScoped<IProductDbContext>(op => op.GetRequiredService<QuickOutContext>());
             serviceCollection.AddScoped<IOrderDbContext>(op => op.GetRequiredService<QuickOutContext>());
+            serviceCollection.AddScoped<IUserDbContext>(op => op.GetRequiredService<QuickOutContext>());
 
             serviceCollection.AddMassTransit(x =>
             {
@@ -60,7 +64,7 @@ namespace QuickOut.Infrastructure
                 });
             });
 
-            //serviceCollection.AddScoped<JwtTokenManager>();
+            serviceCollection.AddScoped<JwtTokenManager>();
             serviceCollection.AddScoped<UnitOfWork>();
             serviceCollection.AddScoped<IVicthorEventBus, EventBus>();
             serviceCollection.AddScoped<IDomainEventManager, DomainEventManager>();
@@ -80,7 +84,10 @@ namespace QuickOut.Infrastructure
 
         public static void RegisterDomainsCommands(VicthorMediatorConfiguration configuration)
         {
+            configuration.Register<AddCustomerCommand>(typeof(AddCustomerCommandHandler));
+
             configuration.Register<AddUserCommand>(typeof(AddUserCommandHandler));
+            configuration.Register<LoginCommand>(typeof(LoginCommandHandler));
         }
 
         public static void RegisterDomainsQueries(IServiceCollection serviceCollection)
@@ -90,10 +97,11 @@ namespace QuickOut.Infrastructure
 
         public static void RegisterDomainsRepositories(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<IUserRepository, UserRepository>();
+            serviceCollection.AddScoped<ICustomerRepository, CustomerRepository>();
             serviceCollection.AddScoped<IEstabilishmentRepository, EstabilishmentRepository>();
             serviceCollection.AddScoped<IProductRepository, ProductRepository>();
             serviceCollection.AddScoped<IOrderRepository, OrderRepository>();
+            serviceCollection.AddScoped<IUserRepository, UserRepository>();
         }
 
         public static void RegisterTransactionalDomainEventHandlers(VicthorMediatorConfiguration configuration)

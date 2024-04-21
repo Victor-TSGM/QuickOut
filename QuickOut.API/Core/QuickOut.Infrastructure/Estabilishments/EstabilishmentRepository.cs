@@ -17,17 +17,24 @@ namespace QuickOut.Infrastructure.Estabilishments
 
         public void Delete(Estabilishment entity)
         {
-            throw new NotImplementedException();
+            context.Estabilishments.Remove(entity);
         }
 
-        public Task<Estabilishment?> GetById(Guid id)
+        public async Task<Estabilishment?> GetById(Guid id)
         {
-            throw new NotImplementedException();
+            Estabilishment dbEntity = await context.Estabilishments.FindAsync(id);
+
+            if (dbEntity == null)
+            {
+                return null;
+            }
+
+            return dbEntity;
         }
 
         public void Update(Estabilishment entity)
         {
-            throw new NotImplementedException();
+            context.Estabilishments.Update(entity);
         }
     }
 }

@@ -20,7 +20,9 @@ public class Result
 
 public class Result<T> : Result
 {
+#pragma warning disable CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
     public T Data { get; protected set; }
+#pragma warning restore CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
 
     public new static Result<T> Fail() => new Result<T> { Succeeded = false };
     public new static Result<T> Fail(params string[] messages) => new Result<T> { Succeeded = false, Messages = messages.ToList() };

@@ -1,11 +1,11 @@
 ﻿using QuickOut.Application.Common;
 using QuickOut.Domain.Common;
-using QuickOut.Domain.Users;
+using QuickOut.Domain.Customers;
 using QuickOut.Library;
 
-namespace QuickOut.Application.Users
+namespace QuickOut.Application.Customers
 {
-    public class AddUserCommand : ICommand<Guid>
+    public class AddCustomerCommand : ICommand<Guid>
     {
         public string Name { get; set; }
         public string CPF { get; set; }
@@ -19,7 +19,7 @@ namespace QuickOut.Application.Users
         public int AddressNumber { get; set; }
         public string PostalCode { get; set; }
 
-        public AddUserCommand(
+        public AddCustomerCommand(
             string name,
             string cpf, 
             string phone, 
@@ -46,18 +46,18 @@ namespace QuickOut.Application.Users
         }
     }
 
-    public class AddUserCommandHandler : ICommandHandler<AddUserCommand, Guid>
+    public class AddCustomerCommandHandler : ICommandHandler<AddCustomerCommand, Guid>
     {
-        private readonly IUserRepository repository;
+        private readonly ICustomerRepository repository;
         private readonly IDomainEventManager domainEvent;
 
-        public AddUserCommandHandler(IUserRepository repository, IDomainEventManager domainEvent)
+        public AddCustomerCommandHandler(ICustomerRepository repository, IDomainEventManager domainEvent)
         {
             this.repository = repository;
             this.domainEvent = domainEvent;
         }
 
-        public Task<Result<Guid>> Handle(AddUserCommand request)
+        public Task<Result<Guid>> Handle(AddCustomerCommand request)
         {
 
             Address userAddress = new Address()
@@ -69,12 +69,11 @@ namespace QuickOut.Application.Users
                 PostalCode = request.PostalCode,
             };
 
-            Result<User> createResult = User.New(
+            Result<Customer> createResult = Customer.New(
                 request.Name,
                 request.CPF,
                 request.Phone,
                 request.Email,
-                request.Password,
                 request.BirthDate,
                 userAddress
                 );

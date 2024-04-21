@@ -10,20 +10,19 @@ namespace QuickOut.Domain.Users
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
-                .IsRequired()
-                .ValueGeneratedOnAdd();
+                .IsRequired();
 
-            builder.Property(x => x.Name)
-                .IsRequired()
-                .HasMaxLength(130);
+            builder.Property(x => x.UserName)
+                .IsRequired();
 
             builder.Property(x => x.Email)
-                .IsRequired()
-                .HasMaxLength(150);
+                .IsRequired();
 
             builder.Property(x => x.Password)
                 .IsRequired();
-              
+
+            builder.Property(x => x.UserRole)
+                .IsRequired();
         }
     }
 }
