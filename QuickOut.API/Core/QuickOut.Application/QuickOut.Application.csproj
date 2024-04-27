@@ -7,15 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Common\Interfaces\" />
     <Folder Include="Common\Security\" />
     <Folder Include="Customers\EventHandlers\" />
     <Folder Include="Customers\Queries\" />
-    <Folder Include="Users\EventHandlers\" />
     <Folder Include="Users\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Library\QuickOut.Library\QuickOut.Library.csproj" />
+    <ProjectReference Include="..\QuickOut.DomainEvents\QuickOut.DomainEvents.csproj" />
     <ProjectReference Include="..\QuickOut.Domain\QuickOut.Domain.csproj" />
   </ItemGroup>
 

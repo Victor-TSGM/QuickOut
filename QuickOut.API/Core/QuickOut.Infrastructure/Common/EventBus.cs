@@ -1,6 +1,7 @@
 ﻿using MassTransit;
 using QuickOut.Application.Common;
 using QuickOut.Intrastructure.Common;
+using QuickOut.Library;
 
 namespace QuickOut.Infrastructure.Common
 {
