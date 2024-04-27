@@ -1,6 +1,7 @@
 ﻿using QuickOut.Application.Common;
 using QuickOut.Domain.Common;
 using QuickOut.Domain.Customers;
+using QuickOut.DomainEvents;
 using QuickOut.Library;
 
 namespace QuickOut.Application.Customers
@@ -75,7 +76,8 @@ namespace QuickOut.Application.Customers
                 request.Phone,
                 request.Email,
                 request.BirthDate,
-                userAddress
+                userAddress,
+                repository
                 );
 
             if(!createResult.Succeeded)
@@ -84,6 +86,8 @@ namespace QuickOut.Application.Customers
             }
 
             repository.Add(createResult.Data);
+
+            domainEvent.Add(new CustomerCreatedEvent(request.Email, request.Password));
 
             return Result<Guid>.Success(createResult.Data.Id).AsTask();
         }

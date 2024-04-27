@@ -19,6 +19,8 @@ using QuickOut.Library;
 using QuickOut.Infrastructure.Users;
 using QuickOut.Domain.Users;
 using QuickOut.Application.Users.Commands;
+using QuickOut.DomainEvents;
+using QuickOut.Application.Users;
 
 namespace QuickOut.Infrastructure
 {
@@ -106,7 +108,7 @@ namespace QuickOut.Infrastructure
 
         public static void RegisterTransactionalDomainEventHandlers(VicthorMediatorConfiguration configuration)
         {
-
+            configuration.RegisterTransactionalDomainEventHandler<CustomerCreatedEvent>(typeof(CustomerCreatedEventHandler));
         }
 
         public static void RegisterIntegrationEventHandlers(IBusRegistrationConfigurator busConfiguration)

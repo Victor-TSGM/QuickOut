@@ -29,6 +29,5 @@ namespace QuickOut.Domain.Users
 
             return Result<User>.Success(entity);
         }
-
     }
 }

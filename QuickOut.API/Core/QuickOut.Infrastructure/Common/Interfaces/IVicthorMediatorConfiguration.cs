@@ -1,4 +1,5 @@
 ﻿using QuickOut.Application.Common;
+using QuickOut.Library;
 
 namespace QuickOut.Intrastructure.Common
 {

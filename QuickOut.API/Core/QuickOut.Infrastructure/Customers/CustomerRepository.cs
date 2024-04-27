@@ -35,5 +35,14 @@ namespace QuickOut.Infrastructure.Customers
         {
             context.Customers.Update(entity);
         }
+        public bool customerEmailAlreadyExists(string email)
+        {
+            return context.Customers.Any(x => x.Email == email);
+        }
+
+        public bool customerCPFAlreadyExists(string cpf)
+        {
+            return context.Customers.Any(x => x.CPF == cpf);
+        }
     }
 }

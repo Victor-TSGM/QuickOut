@@ -1,4 +1,5 @@
-﻿namespace QuickOut.Library
+﻿
+namespace QuickOut.Library
 {
     public interface IIntegrationEvent
     {

@@ -1,4 +1,4 @@
-using QuickOut.Application.Common;
+using QuickOut.Library;
 
 public interface IDomainEventInfo {
     public IDomainEvent DomainEvent { get; set; }

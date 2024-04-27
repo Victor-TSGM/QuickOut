@@ -27,7 +27,8 @@ namespace QuickOut.Domain.Customers
                 string phone,
                 string email,
                 DateTime birthDate,
-                Address address
+                Address address,
+                ICustomerRepository repository
             )
         {
             Customer entity = new Customer()
@@ -42,10 +43,32 @@ namespace QuickOut.Domain.Customers
                 CustomerStatus = CustomerStatus.Active,
             };
 
-            return Result<Customer>.Success( entity );
+            Result rulesResult = CheckRules(
+                new CantAddCustomerIfCPFAlreadyExists(cpf, repository),
+                new CantAddCustomerIfEmailAlreadyExists(email, repository)
+                );
+
+            if (!rulesResult.Succeeded)
+            {
+                return Result<Customer>.Fail(rulesResult.Messages);
+            }
+
+            return Result<Customer>.Success(entity);
+        }
+
+        private static Result CheckRules(params IBusinessRule[] rules)
+        {
+            foreach (var rule in rules)
+            {
+                if (rule.IsBroken())
+                {
+                    return Result.Fail(rule.Message);
+                }
+            }
+
+            return Result.Success();
         }
     }
-
 
     public enum CustomerStatus
     {

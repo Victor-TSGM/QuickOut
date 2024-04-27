@@ -1,4 +1,4 @@
-﻿namespace QuickOut.Application.Common
+﻿namespace QuickOut.Library
 {
     public interface IDomainEvent
     {
