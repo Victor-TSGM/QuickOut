@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickOut", "QuickOut.csproj", "{4D14B2C4-F0A1-4032-98B7-87AD6716C8EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickOut", "QuickOut.csproj", "{4D14B2C4-F0A1-4032-98B7-87AD6716C8EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickOut.Infrastructure", "..\Core\QuickOut.Infrastructure\QuickOut.Infrastructure.csproj", "{810359D7-FF7A-48ED-9D70-2662E7CA5AC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickOut.Infrastructure", "..\Core\QuickOut.Infrastructure\QuickOut.Infrastructure.csproj", "{810359D7-FF7A-48ED-9D70-2662E7CA5AC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickOut.Domain", "..\Core\QuickOut.Domain\QuickOut.Domain.csproj", "{E73D3893-B464-4E3B-BE5E-24C5BC6C45D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickOut.Domain", "..\Core\QuickOut.Domain\QuickOut.Domain.csproj", "{E73D3893-B464-4E3B-BE5E-24C5BC6C45D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickOut.Application", "..\Core\QuickOut.Application\QuickOut.Application.csproj", "{5C19D700-1C6D-4E81-8940-689280D29536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickOut.Application", "..\Core\QuickOut.Application\QuickOut.Application.csproj", "{5C19D700-1C6D-4E81-8940-689280D29536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickOut.Library", "..\Library\QuickOut.Library\QuickOut.Library.csproj", "{ED71E788-7427-4A43-B7E9-0E5562B93B86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickOut.Library", "..\Library\QuickOut.Library\QuickOut.Library.csproj", "{ED71E788-7427-4A43-B7E9-0E5562B93B86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickOut.DomainEvents", "..\Core\QuickOut.DomainEvents\QuickOut.DomainEvents.csproj", "{B932F5B9-9446-46A9-B1C1-9685434BAE3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{ED71E788-7427-4A43-B7E9-0E5562B93B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED71E788-7427-4A43-B7E9-0E5562B93B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED71E788-7427-4A43-B7E9-0E5562B93B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B932F5B9-9446-46A9-B1C1-9685434BAE3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B932F5B9-9446-46A9-B1C1-9685434BAE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B932F5B9-9446-46A9-B1C1-9685434BAE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B932F5B9-9446-46A9-B1C1-9685434BAE3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
