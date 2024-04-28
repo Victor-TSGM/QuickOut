@@ -1,5 +1,4 @@
-﻿
-namespace QuickOut.Domain.Estabilishments
+﻿namespace QuickOut.Domain.Estabilishments
 {
     public class Location
     {

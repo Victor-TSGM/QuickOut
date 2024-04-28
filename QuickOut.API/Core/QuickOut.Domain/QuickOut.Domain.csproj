@@ -15,11 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Users\Events\" />
     <Folder Include="Users\ValueObjects\" />
-    <Folder Include="Estabilishments\Events\" />
-    <Folder Include="Orders\Events\" />
-    <Folder Include="Products\Events\" />
   </ItemGroup>
 
 </Project>

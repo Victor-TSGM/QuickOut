@@ -11,6 +11,8 @@
     <Folder Include="Common\Security\" />
     <Folder Include="Customers\EventHandlers\" />
     <Folder Include="Customers\Queries\" />
+    <Folder Include="Estabilishments\EventHandlers\" />
+    <Folder Include="Estabilishments\Queries\" />
     <Folder Include="Users\Queries\" />
   </ItemGroup>
 
