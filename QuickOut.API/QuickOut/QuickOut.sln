@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickOut.Library", "..\Libr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickOut.DomainEvents", "..\Core\QuickOut.DomainEvents\QuickOut.DomainEvents.csproj", "{B932F5B9-9446-46A9-B1C1-9685434BAE3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickOut.Tests", "..\Tests\QuickOut.Tests\QuickOut.Tests.csproj", "{CBCE41DB-F92B-4B2B-916B-EA89246F8E1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B932F5B9-9446-46A9-B1C1-9685434BAE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B932F5B9-9446-46A9-B1C1-9685434BAE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B932F5B9-9446-46A9-B1C1-9685434BAE3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCE41DB-F92B-4B2B-916B-EA89246F8E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCE41DB-F92B-4B2B-916B-EA89246F8E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCE41DB-F92B-4B2B-916B-EA89246F8E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCE41DB-F92B-4B2B-916B-EA89246F8E1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
