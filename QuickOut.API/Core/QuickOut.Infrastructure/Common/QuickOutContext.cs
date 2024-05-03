@@ -43,5 +43,10 @@ namespace QuickOut.Infrastructure.Common
             modelBuilder.AddOutboxMessageEntity();
             modelBuilder.AddOutboxStateEntity();
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
     }
 }
