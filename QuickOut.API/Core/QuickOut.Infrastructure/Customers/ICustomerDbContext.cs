@@ -8,6 +8,5 @@ namespace QuickOut.Infrastructure.Customers
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Section> Sections { get; set; }
-        public DbSet<Address> Addresses { get; set; }
     }
 }
