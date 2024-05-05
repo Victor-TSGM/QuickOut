@@ -14,7 +14,7 @@ namespace QuickOut.Domain.Customers
         public DateTime BirthDate { get; private set; }
         public Address Address { get; private set; }
         public CustomerStatus CustomerStatus { get; private set; }
-        public List<Section>? Sections { get; private set; }
+        public List<CustomerSection> Sections { get; private set; } = new();
 
         public Customer()
         {
@@ -67,6 +67,19 @@ namespace QuickOut.Domain.Customers
             }
 
             return Result.Success();
+        }
+
+        public void AddSection(CustomerSection section)
+        {
+            foreach (var item in this.Sections)
+            {
+                if (item.Status == SectionStatus.Active)
+                {
+                    item.CloseSection();
+                }
+            }
+            
+            this.Sections.Add(section);
         }
     }
 

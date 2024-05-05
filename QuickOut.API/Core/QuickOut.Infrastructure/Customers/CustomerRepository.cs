@@ -1,4 +1,5 @@
-﻿using QuickOut.Domain.Customers;
+﻿using Microsoft.EntityFrameworkCore;
+using QuickOut.Domain.Customers;
 
 namespace QuickOut.Infrastructure.Customers
 {
@@ -31,9 +32,10 @@ namespace QuickOut.Infrastructure.Customers
             return dbEntity;
         }
 
-        public void Update(Customer entity)
+        public async void Update(Customer entity)
         {
-            context.Customers.Update(entity);
+
+            context.Customers.Update(entity); ;
         }
         public bool customerEmailAlreadyExists(string email)
         {
@@ -43,6 +45,11 @@ namespace QuickOut.Infrastructure.Customers
         public bool customerCPFAlreadyExists(string cpf)
         {
             return context.Customers.Any(x => x.CPF.Document == cpf);
+        }
+
+        public void AddSection(Customer entity)
+        {
+            context.CustomerSections.AddRange(entity.Sections);
         }
     }
 }

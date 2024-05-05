@@ -14,26 +14,28 @@ using QuickOut.Domain.Users;
 
 namespace QuickOut.Infrastructure.Common
 {
-    public class QuickOutContext : DbContext, 
+    public class QuickOutContext : DbContext,
         ICustomerDbContext, IEstabilishmentDbContext, IProductDbContext, IOrderDbContext, IUserDbContext
     {
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<Section> Sections { get; set; }
+        public DbSet<CustomerSection> CustomerSections { get; set; }
         public DbSet<Estabilishment> Estabilishments { get; set; }
+        public DbSet<EstabilishmentSection> EstabilishmentSections { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Order> Orders{ get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public QuickOutContext(DbContextOptions<QuickOutContext> options) : base(options) { }
+        public QuickOutContext(DbContextOptions<QuickOutContext> options) : base(options)
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CustomerTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new AddressTypeConfiguration());
             modelBuilder.ApplyConfiguration(new EstabilishmentTypeConfiguration());
             modelBuilder.ApplyConfiguration(new ProductTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UserTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderTypeConfiguration());
             // ### Entities Type Configurations
 
             base.OnModelCreating(modelBuilder);

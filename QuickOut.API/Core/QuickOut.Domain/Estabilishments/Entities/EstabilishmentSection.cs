@@ -1,6 +1,6 @@
 ﻿using QuickOut.Library;
 
-namespace QuickOut.Domain.Customers
+namespace QuickOut.Domain.Estabilishments
 {
 
     public enum SectionStatus
@@ -8,36 +8,36 @@ namespace QuickOut.Domain.Customers
         Active,
         Closed
     }
-    public class CustomerSection
+    public class EstabilishmentSection
     {
         public Guid Id { get; private set; }
-        public Guid CustomerId { get; private set; }
         public Guid EstabilishmentId { get; private set; }
+        public Guid CustomerId { get; private set; }
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
         //public string Token { get; private set; }
         public SectionStatus Status { get; private set; }
 
-        protected CustomerSection()
+        protected EstabilishmentSection()
         {
 
         }
 
-        public static Result<CustomerSection> StartSection(
-                Guid estabilishmentId,
-                Customer customer
-            )
+        public static Result<EstabilishmentSection> StartSection(
+            Guid customerId,
+            Estabilishment estabilishment
+        )
         {
-            CustomerSection entity = new CustomerSection()
+            EstabilishmentSection entity = new EstabilishmentSection()
             {
                 Id = Guid.NewGuid(),
-                CustomerId = customer.Id,
-                EstabilishmentId = estabilishmentId,
+                CustomerId = customerId,
+                EstabilishmentId = estabilishment.Id,
                 StartDate = DateTime.Now,
                 Status = SectionStatus.Active
             };
 
-            return Result<CustomerSection>.Success(entity);
+            return Result<EstabilishmentSection>.Success(entity);
         }
 
         public void CloseSection()

@@ -6,5 +6,7 @@ namespace QuickOut.Domain.Customers
     {
         bool customerEmailAlreadyExists(string email);
         bool customerCPFAlreadyExists(string cpf);
+
+        void AddSection(Customer entity);
     }
 }

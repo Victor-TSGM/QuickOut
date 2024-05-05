@@ -17,11 +17,11 @@ namespace QuickOut.Domain.Estabilishments
                 .IsRequired()
                 .HasMaxLength(120);
 
-            builder.Property(x => x.CNPJ)
-                .IsRequired()
-                .HasMaxLength(16);
+            builder.HasMany(x => x.Sections);
 
-            builder.HasOne(x => x.Address);
+            builder.OwnsOne(x => x.CNPJ);
+            builder.OwnsOne(x => x.Email);
+            builder.OwnsOne(x => x.Address);
 
         }
     }

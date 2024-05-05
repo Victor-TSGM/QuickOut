@@ -8,6 +8,7 @@ namespace QuickOut.Domain.Estabilishments
     public class Estabilishment
     {
         public Guid Id { get; private set; }
+        public string ValidationCode { get; private set; }
         public string Name { get; private set; }
         public Cnpj CNPJ { get; private set; }
         public Address Address { get; private set; }
@@ -17,7 +18,8 @@ namespace QuickOut.Domain.Estabilishments
         public string? LogoType { get; private set; }
         public EstabilishmentStatus? Status { get; private set; }
         public Email Email { get; private set; }
-        public List<Guid>? Products { get; private set; }
+        public List<Guid>? Products { get; private set; } = new();
+        public List<EstabilishmentSection> Sections { get; private set; } = new();
 
         protected Estabilishment() { }
 
@@ -33,6 +35,7 @@ namespace QuickOut.Domain.Estabilishments
             Estabilishment entity = new Estabilishment()
             {
                 Name = name,
+                ValidationCode = "123456",
                 CNPJ = cnpj,
                 Address = address,
                 OperationStart = operationStart,
@@ -46,6 +49,11 @@ namespace QuickOut.Domain.Estabilishments
         public static Result Update(Estabilishment entity)
         {
             return Result.Success();
+        }
+
+        public void AddSection(EstabilishmentSection estabilishmentSection)
+        {
+            this.Sections.Add(estabilishmentSection);
         }
     }
 

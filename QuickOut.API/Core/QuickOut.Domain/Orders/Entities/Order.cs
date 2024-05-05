@@ -8,9 +8,11 @@ namespace QuickOut.Domain.Orders
         public Guid CustomerId { get; private set; }
         public Guid EstabilishmentId { get; private set; }
         public DateTime Date { get; private set; }
-        public double TotalValue { get; private set; }
+        
+        public int OrderItemsQuantity => OrderItems.Count;
+        public double TotalValue  => OrderItems.Sum(x => x.Value);
         public OrderStatus OrderStatus { get; private set; }
-        public List<Guid>? OrderItems { get; private set; }
+        public List<OrderItem> OrderItems { get; private set; } = new();
 
         protected Order() { }
 
@@ -18,21 +20,36 @@ namespace QuickOut.Domain.Orders
         {
             Order order = new Order()
             {
+                Id = Guid.NewGuid(),
                 CustomerId = customerId,
                 EstabilishmentId = estabilishmentId,
                 Date = DateTime.Now,
-                OrderStatus = OrderStatus.Pending,
-                TotalValue = 0,
-                OrderItems = new List<Guid>()
+                OrderStatus = OrderStatus.InProgress,
+                OrderItems = new List<OrderItem>()
             };
 
             return Result<Order>.Success(order);    
         }
+
+        public void AddOrderItem(OrderItem orderItem)
+        {
+            this.OrderItems.Add(orderItem);
+        }
+
+        public void RemoveOrderItem(OrderItem orderItem)
+        {
+            this.OrderItems.Remove(orderItem);
+        }
+        
+        // public Result MakePayment() {}
+        
+        // public Result GenerateInvoice() {}
+        
     }
     public enum OrderStatus
     {
-        Pending,
+        InProgress,
         Canceled,
-        finished
+        Finished
     }
 }
