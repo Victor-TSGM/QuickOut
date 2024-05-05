@@ -1,4 +1,5 @@
 ﻿using QuickOut.Domain.Common;
+using QuickOut.Domain.Customers.ValueObjects;
 using QuickOut.Library;
 
 namespace QuickOut.Domain.Customers
@@ -6,26 +7,25 @@ namespace QuickOut.Domain.Customers
     public class Customer
     {
         public Guid Id { get; private set; }
-        public string Name { get; private set; }
-        public string CPF { get; private set; }
-        public string Phone { get; private set; }
-        public string Email { get; private set; }
+        public Name Name { get; private set; }
+        public Cpf CPF { get; private set; }
+        public PhoneNumber Phone { get; private set; }
+        public Email Email { get; private set; }
         public DateTime BirthDate { get; private set; }
         public Address Address { get; private set; }
         public CustomerStatus CustomerStatus { get; private set; }
         public List<Section>? Sections { get; private set; }
 
-
-        protected Customer()
+        public Customer()
         {
 
         }
 
         public static Result<Customer> New(
-                string name,
-                string cpf,
-                string phone,
-                string email,
+                Name name,
+                Cpf cpf,
+                PhoneNumber phone,
+                Email email,
                 DateTime birthDate,
                 Address address,
                 ICustomerRepository repository
@@ -44,8 +44,8 @@ namespace QuickOut.Domain.Customers
             };
 
             Result rulesResult = CheckRules(
-                new CantAddCustomerIfCPFAlreadyExists(cpf, repository),
-                new CantAddCustomerIfEmailAlreadyExists(email, repository)
+                new CantAddCustomerIfCPFAlreadyExists(cpf.Document, repository),
+                new CantAddCustomerIfEmailAlreadyExists(email.Address, repository)
                 );
 
             if (!rulesResult.Succeeded)

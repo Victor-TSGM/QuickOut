@@ -1,18 +1,20 @@
-﻿namespace QuickOut.Domain.Orders
+﻿using QuickOut.Library;
+
+namespace QuickOut.Domain.Orders
 {
     public class OrderItem
     {
         public Guid Id { get; set; }
-        public Guid OrderId { get; set; }
-        public Guid ProductId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public double Value { get; set; }
-        public double Weight { get; set; }
-
-        public OrderItem(Guid id, Guid orderId, Guid productId, string name, string description, double value, double weight)
+        public Guid OrderId { get; private set; }
+        public Guid ProductId { get; private set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public double Value { get; private set; }
+        public double Weight { get; private set; }
+        
+        public OrderItem(Guid orderId, Guid productId, string name, string description, double value, double weight)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             OrderId = orderId;
             ProductId = productId;
             Name = name;

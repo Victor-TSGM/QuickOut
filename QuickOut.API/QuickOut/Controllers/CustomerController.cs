@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuickOut.Application.Customers;
+using QuickOut.Application.Customers.Queries;
 using QuickOut.Infrastructure.Common;
 using QuickOut.Library;
 
@@ -14,9 +15,15 @@ namespace QuickOut.Controllers
         }
 
         [HttpGet]
-        public IActionResult HelloWorkTask()
+        public async Task<IActionResult> GetById([FromServices] GetCustomerByIdQueryHanndler query, [FromBody] GetCustomerByIdParams parameters)
         {
-            return Ok("Hello World");
+            try
+            {
+                return Ok(await query.Handle(parameters));
+            }catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
@@ -32,6 +39,25 @@ namespace QuickOut.Controllers
 
                 return Ok(result.Data);
             }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("authenticateEstabilishment")]
+        public async Task<IActionResult> AuthenticateEstabilishment(AuthenticateEstabilishmentCommand command)
+        {
+            try
+            {
+                Result<string> result = await commands.Execute(command);
+
+                if(!result.Succeeded)
+                {
+                    return BadRequest(result.Messages);
+                }
+
+                return Ok(result.Data);
+            }catch(Exception ex)
             {
                 return BadRequest(ex.Message);
             }
