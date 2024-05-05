@@ -1,36 +1,41 @@
-﻿using QuickOut.Domain.Common;
+﻿using QuickOut.Domain.Customers.ValueObjects;
+using QuickOut.Domain.Estabilishments.ValueObjects;
 using QuickOut.Library;
+using Email = QuickOut.Domain.Estabilishments.ValueObjects.Email;
 
 namespace QuickOut.Domain.Estabilishments
 {
     public class Estabilishment
     {
         public Guid Id { get; private set; }
+        public string ValidationCode { get; private set; }
         public string Name { get; private set; }
-        public string CNPJ { get; private set; }
+        public Cnpj CNPJ { get; private set; }
         public Address Address { get; private set; }
         //public Location Location { get; private set; }
         public TimeSpan OperationStart { get; private set; }
         public TimeSpan OperationsEnd { get; private set; }
         public string? LogoType { get; private set; }
         public EstabilishmentStatus? Status { get; private set; }
-        public string Email { get; private set; }
-        public List<Guid>? Products { get; private set; }
+        public Email Email { get; private set; }
+        public List<Guid>? Products { get; private set; } = new();
+        public List<EstabilishmentSection> Sections { get; private set; } = new();
 
         protected Estabilishment() { }
 
         public static Result<Estabilishment> New(
             string name,
-            string cnpj,
+            Cnpj cnpj,
             Address address,
             TimeSpan operationStart,
             TimeSpan operationEnd,
-            string email
+            Email email
             )
         {
             Estabilishment entity = new Estabilishment()
             {
                 Name = name,
+                ValidationCode = "123456",
                 CNPJ = cnpj,
                 Address = address,
                 OperationStart = operationStart,
@@ -44,6 +49,11 @@ namespace QuickOut.Domain.Estabilishments
         public static Result Update(Estabilishment entity)
         {
             return Result.Success();
+        }
+
+        public void AddSection(EstabilishmentSection estabilishmentSection)
+        {
+            this.Sections.Add(estabilishmentSection);
         }
     }
 

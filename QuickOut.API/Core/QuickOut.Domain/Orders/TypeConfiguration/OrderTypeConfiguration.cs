@@ -12,6 +12,7 @@ namespace QuickOut.Domain.Orders
             builder.Property(x => x.Id)
                 .IsRequired();
 
+            builder.OwnsMany<OrderItem>(x => x.OrderItems);
         }
     }
 }

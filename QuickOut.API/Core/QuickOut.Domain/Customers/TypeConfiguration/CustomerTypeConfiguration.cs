@@ -13,14 +13,13 @@ namespace QuickOut.Domain.Customers
                 .IsRequired()
                 .ValueGeneratedOnAdd();
 
-            builder.Property(x => x.Name)
-                .IsRequired()
-                .HasMaxLength(130);
+            builder.HasMany(x => x.Sections);
 
-            builder.Property(x => x.Email)
-                .IsRequired()
-                .HasMaxLength(150);
-      
-        }
+            builder.OwnsOne(x => x.Name);
+            builder.OwnsOne(x => x.Email);
+            builder.OwnsOne(x => x.CPF);
+            builder.OwnsOne(x => x.Address);
+            builder.OwnsOne(x => x.Phone);
+       }
     }
 }

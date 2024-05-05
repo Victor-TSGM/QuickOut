@@ -7,6 +7,6 @@ namespace QuickOut.Infrastructure.Customers
     public interface ICustomerDbContext
     {
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Section> Sections { get; set; }
+        public DbSet<CustomerSection> CustomerSections { get; set; }
     }
 }

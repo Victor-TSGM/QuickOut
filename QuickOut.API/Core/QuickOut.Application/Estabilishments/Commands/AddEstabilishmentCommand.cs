@@ -1,6 +1,7 @@
 ﻿using QuickOut.Application.Common;
 using QuickOut.Domain.Common;
 using QuickOut.Domain.Estabilishments;
+using QuickOut.Domain.Estabilishments.ValueObjects;
 using QuickOut.Library;
 
 namespace QuickOut.Application.Estabilishments
@@ -17,9 +18,9 @@ namespace QuickOut.Application.Estabilishments
         public string City { get; set; }
         public string Street { get; set; }
         public int AddressNumber { get; set; }
-        public string PostalCode { get; set; }
+        public string ZipCode { get; set; }
 
-        public AddEstabilishmentCommand(string name, string cnpj, string email, double operationStart, double operationEnd, string country, string state, string city, string street, int addressNumber, string postalCode)
+        public AddEstabilishmentCommand(string name, string cnpj, string email, double operationStart, double operationEnd, string country, string state, string city, string street, int addressNumber, string zipCode)
         {
             Name = name;
             CNPJ = cnpj;
@@ -31,7 +32,7 @@ namespace QuickOut.Application.Estabilishments
             City = city;
             Street = street;
             AddressNumber = addressNumber;
-            PostalCode = postalCode;
+            ZipCode = zipCode;
         }
     }
     public class AddEstabilishmentCommandHandler : ICommandHandler<AddEstabilishmentCommand, Guid>
@@ -48,27 +49,19 @@ namespace QuickOut.Application.Estabilishments
         public async Task<Result<Guid>> Handle(AddEstabilishmentCommand request)
         {
             string name;
-            string cnpj;
-            string email;
+            Cnpj cnpj;
+            Email email;
+            Address address;
             TimeSpan operationStart;
             TimeSpan operationEnd;
 
-            Result result = TryParseInput(request, out name, out cnpj, out email, out operationStart, out operationEnd);
+            Result result = TryParseInput(request, out name, out cnpj, out email, out address, out operationStart, out operationEnd);
 
             if(!result.Succeeded)
             {
                 return Result<Guid>.Fail(result.Messages);
             }
-
-            Address address = new Address
-            {
-                Country = request.Country,
-                State = request.State,
-                Street = request.Street,
-                City = request.City,
-                AddressNumber = request.AddressNumber,
-                PostalCode = request.PostalCode
-            };
+           
 
             Result<Estabilishment> createResult = Estabilishment.New(
                 name, cnpj, address, operationStart, operationEnd, email);
@@ -86,26 +79,30 @@ namespace QuickOut.Application.Estabilishments
         private Result TryParseInput(
             AddEstabilishmentCommand request, 
             out string name, 
-            out string cnpj, 
-            out string email,
+            out Cnpj cnpj, 
+            out Email email,
+            out Address address,
             out TimeSpan operationStart, 
             out TimeSpan operationEnd)
         {
             Result<string> nameResult = Result<string>.Success(request.Name);
-            Result<string> cnpjResult = Result<string>.Success(request.CNPJ);
-            Result<string> emailResult = Result<string>.Success(request.Email);
+            Result<Cnpj> cnpjResult = Cnpj.New(request.CNPJ);
+            Result<Email> emailResult = Email.New(request.Email);
             Result<TimeSpan> operationStartResult = Result<TimeSpan>.Success(TimeSpan.FromMilliseconds(request.OperationStart));
             Result<TimeSpan> operationEndResult = Result<TimeSpan>.Success(TimeSpan.FromMilliseconds(request.OperationEnd));
+            Result<Address> addressResult = Address.New(
+                request.Country, request.State, request.City, request.Street, request.AddressNumber, request.ZipCode);
 
             name = nameResult.Data;
             cnpj = cnpjResult.Data;
             email = emailResult.Data;
+            address = addressResult.Data;
             operationStart = operationStartResult.Data;
             operationEnd = operationEndResult.Data;
 
-            if(ResultHelpers.IsAnyFailed(nameResult, cnpjResult, emailResult, operationStartResult, operationEndResult))
+            if(ResultHelpers.IsAnyFailed(nameResult, cnpjResult, emailResult, addressResult, operationStartResult, operationEndResult))
             {
-                return ResultHelpers.FailWithMessages(nameResult, emailResult, cnpjResult, operationStartResult, operationEndResult);
+                return ResultHelpers.FailWithMessages(nameResult, emailResult, cnpjResult, addressResult, operationStartResult, operationEndResult);
             }
 
             return Result.Success();

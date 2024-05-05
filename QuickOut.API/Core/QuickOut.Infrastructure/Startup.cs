@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickOut.Application.Common;
 using QuickOut.Application.Customers;
+using QuickOut.Application.Products.Commands;
 using QuickOut.Domain.Estabilishments;
 using QuickOut.Domain.Orders;
 using QuickOut.Domain.Products;
@@ -21,6 +22,11 @@ using QuickOut.Domain.Users;
 using QuickOut.Application.Users.Commands;
 using QuickOut.DomainEvents;
 using QuickOut.Application.Users;
+using QuickOut.Application.Orders.Commands;
+using QuickOut.Application.Customers.Queries;
+using QuickOut.Application.Estabilishments;
+using QuickOut.Application.Estabilishments.EventHandlers;
+using QuickOut.Application.Customers.EventHandlers;
 
 namespace QuickOut.Infrastructure
 {
@@ -87,14 +93,25 @@ namespace QuickOut.Infrastructure
         public static void RegisterDomainsCommands(VicthorMediatorConfiguration configuration)
         {
             configuration.Register<AddCustomerCommand>(typeof(AddCustomerCommandHandler));
+            configuration.Register<AuthenticateCustomerCommand>(typeof(AuthenticateCustomerCommandHandler));
+            configuration.Register<StartSectionCommand>(typeof(StartSectionCommandHandler));
+
+
+            configuration.Register<AddEstabilishmentCommand>(typeof(AddEstabilishmentCommandHandler));
+            configuration.Register<AuthenticateEstabilishmentCommand>(typeof(AuthenticateEstabilishmentCommandHandler));
+
 
             configuration.Register<AddUserCommand>(typeof(AddUserCommandHandler));
             configuration.Register<LoginCommand>(typeof(LoginCommandHandler));
+            
+            configuration.Register<AddProductCommand>(typeof(AddProductCommandHandler));
+
+            configuration.Register<AddOrderCommand>(typeof(AddOrderCommandHandler));
         }
 
         public static void RegisterDomainsQueries(IServiceCollection serviceCollection)
         {
-
+            serviceCollection.AddScoped<GetCustomerByIdQueryHanndler>();
         }
 
         public static void RegisterDomainsRepositories(IServiceCollection serviceCollection)
@@ -109,6 +126,9 @@ namespace QuickOut.Infrastructure
         public static void RegisterTransactionalDomainEventHandlers(VicthorMediatorConfiguration configuration)
         {
             configuration.RegisterTransactionalDomainEventHandler<CustomerCreatedEvent>(typeof(CustomerCreatedEventHandler));
+            configuration.RegisterTransactionalDomainEventHandler<AuthenticateEstabilishmentEvent>(typeof(AuthenticateEstabelishmentEventHandler));
+            configuration.RegisterTransactionalDomainEventHandler<AuthenticateCustomerEvent>(typeof(AuthenticateCustomerEventHandler));
+
         }
 
         public static void RegisterIntegrationEventHandlers(IBusRegistrationConfigurator busConfiguration)
