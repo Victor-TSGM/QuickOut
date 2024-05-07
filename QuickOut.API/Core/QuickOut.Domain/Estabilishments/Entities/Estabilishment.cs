@@ -21,7 +21,7 @@ namespace QuickOut.Domain.Estabilishments
         public List<Guid>? Products { get; private set; } = new();
         public List<EstabilishmentSection> Sections { get; private set; } = new();
 
-        protected Estabilishment() { }
+        public Estabilishment() { }
 
         public static Result<Estabilishment> New(
             string name,

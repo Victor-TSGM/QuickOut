@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.DataProtection.Internal;
 using Microsoft.AspNetCore.Mvc;
 using QuickOut.Application.Products.Commands;
+using QuickOut.Application.Products.Queries;
 using QuickOut.Infrastructure.Common;
 using QuickOut.Library;
 
@@ -15,6 +16,21 @@ public class ProductController : VicthorController
     {
     }
 
+    [HttpGet("read")]
+    public async Task<IActionResult> ReadProducts(
+        [FromServices] ReadProductsQueryHandler query,
+        [FromQuery] ReadProductsParams parameters)
+    {
+        try
+        {
+            return Ok(await query.Handle(parameters));
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    
     [HttpPost]
     public async Task<IActionResult> AddProduct(AddProductCommand command)
     {

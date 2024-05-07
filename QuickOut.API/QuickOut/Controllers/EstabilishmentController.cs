@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuickOut.Application.Estabilishments;
+using QuickOut.Application.Estabilishments.Queries;
 using QuickOut.Infrastructure.Common;
 using QuickOut.Library;
 
@@ -13,6 +14,21 @@ namespace QuickOut.Controllers
         {
         }
 
+        [HttpGet("read")]
+        public async Task<IActionResult> ReadEstabilishments(
+            [FromServices] ReadEstabilishmentsQueryHandler query,
+            [FromQuery] ReadEstabilishmentsParams parameters)
+        {
+            try
+            {
+                return Ok(await query.Handle(parameters));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        
         [HttpPost]
         public async Task<IActionResult> AddEstabilishment(AddEstabilishmentCommand command)
         {
@@ -31,5 +47,6 @@ namespace QuickOut.Controllers
                 return BadRequest($"Failed to add {ex.Message}");
             }
         }
+        
     }
 }
