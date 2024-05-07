@@ -1,15 +1,15 @@
-﻿using QuickOut.Library;
+﻿using QuickOut.Domain.Common.Shared;
+using QuickOut.Library;
 
 namespace QuickOut.Domain.Products.ValueObjects
 {
-    public class Category
+    public class Category : ValueObject
     {
-        public Guid Id { get; private set; }
         public string Description { get; private set; }
         
         protected Category() {}
 
-        public Result<Category> New(string description)
+        public static Result<Category> New(string description)
         {
             if (string.IsNullOrEmpty(description))
             {
@@ -18,7 +18,6 @@ namespace QuickOut.Domain.Products.ValueObjects
 
             Category category = new Category()
             {
-                Id = Guid.NewGuid(),
                 Description = description
             };
 

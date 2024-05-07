@@ -647,6 +647,31 @@ namespace QuickOut.Infrastructure.Migrations
                     b.Navigation("OrderItems");
                 });
 
+            modelBuilder.Entity("QuickOut.Domain.Products.Product", b =>
+                {
+                    b.OwnsOne("QuickOut.Domain.Products.ValueObjects.Category", "Category", b1 =>
+                        {
+                            b1.Property<Guid>("ProductId")
+                                .HasColumnType("char(36)");
+
+                            b1.Property<string>("Description")
+                                .IsRequired()
+                                .HasMaxLength(100)
+                                .HasColumnType("NVARCHAR")
+                                .HasColumnName("Category");
+
+                            b1.HasKey("ProductId");
+
+                            b1.ToTable("Products");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProductId");
+                        });
+
+                    b.Navigation("Category")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("QuickOut.Domain.Customers.Customer", b =>
                 {
                     b.Navigation("Sections");

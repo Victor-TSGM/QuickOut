@@ -27,6 +27,8 @@ using QuickOut.Application.Customers.Queries;
 using QuickOut.Application.Estabilishments;
 using QuickOut.Application.Estabilishments.EventHandlers;
 using QuickOut.Application.Customers.EventHandlers;
+using QuickOut.Application.Estabilishments.Queries;
+using QuickOut.Application.Products.Queries;
 
 namespace QuickOut.Infrastructure
 {
@@ -111,7 +113,14 @@ namespace QuickOut.Infrastructure
 
         public static void RegisterDomainsQueries(IServiceCollection serviceCollection)
         {
+            //Customer
             serviceCollection.AddScoped<GetCustomerByIdQueryHanndler>();
+            
+            //Estabilishment
+            serviceCollection.AddScoped<ReadEstabilishmentsQueryHandler>();
+            
+            //Product
+            serviceCollection.AddScoped<ReadProductsQueryHandler>();
         }
 
         public static void RegisterDomainsRepositories(IServiceCollection serviceCollection)

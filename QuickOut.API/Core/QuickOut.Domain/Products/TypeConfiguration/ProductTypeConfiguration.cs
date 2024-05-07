@@ -25,6 +25,12 @@ namespace QuickOut.Domain.Products
 
             builder.Property(x => x.AvaliableQuantity)
                 .IsRequired();
+
+            builder.OwnsOne(x => x.Category)
+                .Property(x => x.Description)
+                .HasColumnName("Category")
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(100);
         }
     }
 }

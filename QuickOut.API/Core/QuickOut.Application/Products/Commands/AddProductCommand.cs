@@ -3,6 +3,7 @@ using QuickOut.Application.Common;
 using QuickOut.Domain.Products;
 using QuickOut.Library;
 using QuickOut.Domain.Products;
+using QuickOut.Domain.Products.ValueObjects;
 
 namespace QuickOut.Application.Products.Commands;
 
@@ -39,8 +40,12 @@ public class AddProductCommandHandler : ICommandHandler<AddProductCommand, Guid>
     
     public Task<Result<Guid>> Handle(AddProductCommand request)
     {
+
+        Result<Category> category = Category.New("Geral");
+        
+        
         Result<Product> createResult = Product.New(
-            request.BarCode, request.Name, request.Description, request.Price, request.Quantity);
+            request.BarCode, request.Name, request.Description, request.Price, request.Quantity, category.Data);
 
         if (!createResult.Succeeded)
         {
@@ -51,4 +56,6 @@ public class AddProductCommandHandler : ICommandHandler<AddProductCommand, Guid>
 
         return Result<Guid>.Success(createResult.Data.Id).AsTask();
     }
+
+
 }
