@@ -1,4 +1,4 @@
-import { AuthenticationParams } from "../interfaces/Authentication";
+import { AuthenticationParams } from "../interfaces/IAuthentication";
 import { AccountModel } from "../models/AccountModel";
 import { faker } from "@faker-js/faker";
 

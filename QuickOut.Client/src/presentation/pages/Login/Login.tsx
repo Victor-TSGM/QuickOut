@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as Styles from './login-styles.scss';
-import VInput from '@/presentation/components/VInput/VInput';
-import VCheckBox from '@/presentation/components/VCheckBox/VCheckBox';
-import { ThemeType } from '@/presentation/components/Theme';
-import VLink from '@/presentation/components/VLink/VLink';
-import VButton from '@/presentation/components/VButton/VButton';
 import { ArrowEnterFilled } from '@fluentui/react-icons';
+import { ThemeType } from '@/presentation/Components/Theme';
+import VButton from '@/presentation/Components/VButton/VButton';
+import VCheckBox from '@/presentation/Components/VCheckBox/VCheckBox';
+import VInput from '@/presentation/Components/VInput/VInput';
+import VLink from '@/presentation/Components/VLink/VLink';
 
 const Login = () => {
   const [email, setEmail] = React.useState<string>(null);

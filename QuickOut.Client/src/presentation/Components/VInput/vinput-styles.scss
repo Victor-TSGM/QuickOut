@@ -1,9 +1,11 @@
+@import "../../../main/styles/colors.scss";
+
 .vinputLight,
 .vinputDark {
   height: 45px;
   font-size: 16px;
   width: 100%;
-  border-bottom: 5px solid #FF710E;
+  border-bottom: 5px solid $primary;
   border-radius: 5px;
   padding: 5px;
   margin-top: 20px;

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Login from '@/presentation/pages/login/Login';
 import * as Styles from './app.scss';
+import Login from '@/presentation/pages/Login/Login';
 const App = () => {
   return ( 
     <>

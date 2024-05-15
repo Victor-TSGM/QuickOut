@@ -7,7 +7,7 @@ import { faker, ur } from '@faker-js/faker';
 import { UnespectedError } from "@/domain/errors/UnespectedError";
 import { AccountModel } from "@/domain/models/AccountModel";
 import { emit } from "process";
-import { AuthenticationParams } from "@/domain/interfaces/Authentication";
+import { AuthenticationParams } from "@/domain/interfaces/IAuthentication";
 
 type SutTypes = {
   sut: RemoteAuthentication

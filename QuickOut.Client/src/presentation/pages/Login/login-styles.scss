@@ -1,10 +1,4 @@
-$background: #efefef;
-$white: #fff;
-$black: #181818;
-$primary: #FF710E;
-$primaryLight: #fb9044;
-$secondary: #282828;
-
+@import "../../../main/styles/colors.scss";
 * {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;

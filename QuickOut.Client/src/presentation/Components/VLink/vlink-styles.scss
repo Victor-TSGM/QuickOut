@@ -1,6 +1,9 @@
+@import "../../../main/styles/colors.scss";
+
+
 .vlinkLight{
   font-size: 16px;
-  color: #efefef;
+  color: $white;
   padding: 0.5rem;
   text-decoration: none;
   &:hover {
@@ -10,7 +13,7 @@
 
 .vlinkDark {
   font-size: 16px;
-  color: #282828;
+  color: $secondary;
   padding: 0.5rem;
   text-decoration: none;
   &:hover {
