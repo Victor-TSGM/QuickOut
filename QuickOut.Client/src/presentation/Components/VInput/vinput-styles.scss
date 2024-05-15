@@ -1,0 +1,29 @@
+.vinputLight,
+.vinputDark {
+  height: 45px;
+  font-size: 16px;
+  width: 100%;
+  border-bottom: 5px solid #FF710E;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 20px;
+  transition: 200ms;
+}
+
+.vinputLight {
+  background-color: #fff;
+  color: #282828;
+}
+.vinputDark {
+  background-color: #282828;
+  color: #cbcbcb;
+}
+
+.vinputLight:hover {
+  background-color: #d7d7d7;
+  color: #282828;
+}
+.vinputDark:hover {
+  background-color: #424242;
+  color: #cbcbcb;
+}

@@ -1,20 +1,38 @@
 import * as React from 'react';
-import './Login.css';
-import { Input } from '@fluentui/react-components';
+import * as Styles from './login-styles.scss';
+import VInput from '@/presentation/components/VInput/VInput';
+import VCheckBox from '@/presentation/components/VCheckBox/VCheckBox';
+import { ThemeType } from '@/presentation/components/Theme';
+import VLink from '@/presentation/components/VLink/VLink';
+import VButton from '@/presentation/components/VButton/VButton';
+import { ArrowEnterFilled } from '@fluentui/react-icons';
 
-export interface Props {
+const Login = () => {
+  const [email, setEmail] = React.useState<string>(null);
+  const [password, setPassword] = React.useState<string>(null);
 
-}
+  const doLogin = () => {
 
-const Login = (props: Props) => {
+  }
+
   return (
-    <div className="g-0">
-      <div className="col-12 d-flex flex-column login-container" style={{ height: '100vh', width: '100vw'}}>
-        <div className="col-6 d-flex login-card">
-          <div className="col-8 w-100 p-1"><Input placeholder='Email' style={{width: '50%', color : 'black', backgroundColor: 'white'}}></Input></div>
-          <div className="col-8 w-100 p-1"><Input placeholder='Senha' style={{width: '50%',color : 'black', backgroundColor: 'white'}}></Input></div>
+    <div className={Styles.login}>
+      <form className={Styles.form} action="">
+        <VInput placeholder='Email' type='email' onChange={(e) => setEmail(e)} theme={ThemeType.Light}/>
+        <VInput placeholder='Senha'type='password'onChange={(e) => setEmail(e)} theme={ThemeType.Light}/>
+        <div className={Styles.formOptions}>
+          <VCheckBox title='Continuar conectado' checked={false} onCheck={() => {}} theme={ThemeType.Dark}/>
+          <VLink text='Esqueci a senha' href='#' theme={ThemeType.Light}/>
         </div>
-      </div>
+        <div className={Styles.formActions}>
+          <VButton 
+            text='Entrar' icon={<ArrowEnterFilled />} 
+            theme={ThemeType.Light} onSubmit={() => {}}/>
+            <VButton 
+            text='Registrar' 
+            theme={ThemeType.Dark} onSubmit={() => {}}/>
+        </div>
+      </form>
     </div>
   );
 }

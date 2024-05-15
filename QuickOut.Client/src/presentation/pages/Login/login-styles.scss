@@ -1,0 +1,67 @@
+$background: #efefef;
+$white: #fff;
+$black: #181818;
+$primary: #FF710E;
+$primaryLight: #fb9044;
+$secondary: #282828;
+
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background;
+}
+
+.login {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('../../images/login/desktop-bg.png');
+  background-repeat: no-repeat;
+  background-size: 110%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .form {
+    width: 30%;
+    height: 50%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 1rem;
+
+    .formOptions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .formActions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login {
+      background-image: url('../../images/login/mobile-bg.png');
+      
+      .form {
+        margin-bottom: -15rem;
+        width: 90%;
+      }
+  }
+}

@@ -1,0 +1,44 @@
+
+$background: #efefef;
+$white: #fff;
+$black: #181818;
+$primary: #FF710E;
+$primaryDark: #a75113;
+$primaryLight: #fb9044;
+$secondary: #3a3939;
+
+.vbuttonLight,
+.vbuttonDark {
+  width: 100%;
+  height: 45px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+
+.vbuttonLight {
+  background-color: $primary;
+  color: $white;
+}
+
+.vbuttonDark {
+  background-color: $secondary;
+  color: $primary;
+}
+
+
+.vbuttonLight:hover {
+  background-color: $primaryDark;
+}
+
+.vbuttonDark:hover {
+  color: $white;
+}
+

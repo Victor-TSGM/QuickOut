@@ -1,0 +1,35 @@
+.vcheckbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+
+  .vcheckboxLight,
+  .vcheckboxDark {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .vcheckboxLight,
+  .vcheckboxLabelLight {
+    font-size: 14px;
+    color: #414141;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  
+  .vcheckboxDark,
+  .vcheckboxLabelDark {
+    font-size: 14px;
+    color: #cec3c3;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

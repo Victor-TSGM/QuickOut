@@ -2,6 +2,8 @@ node_modules
 .vscode
 public
 dist
+build
 *.css
 *.json
 webpack.*.js
+*.scss
