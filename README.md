@@ -18,7 +18,7 @@ This project is built with the following technologies:
 
 - **Domain-Driven Design (DDD)**: An approach to software development for complex needs by connecting the implementation to an evolving model.
 
-- **Modular Monolithic Architecture**: A software architecture that combines the simplicity of a monolith with the modularity and maintainability of microservices.
+- **Clean Archtecture**: A software architecture that ensure a good responsability segregation.
 
 - **Command Query Responsibility Segregation (CQRS)**: A pattern that segregates the operations that read data (Queries) from the operations that update data (Commands) into different objects.
 
