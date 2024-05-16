@@ -3,16 +3,14 @@ import * as Styles from './feed-styles.scss';
 import { VSideBar } from '@/presentation/Components/VSideBar/VSideBar';
 import { VNotification } from '@/presentation/Components/VNotification/VNotification';
 import { VBanner } from '@/presentation/Components/VBanner/VBanner';
-import { estabilishmentData } from '@/data/fakeData/EstabilishmentData';
 import { VEstabilishmentCard } from '@/presentation/Components/VEstabilishmentCard/VEstabilishmentCard';
+import { estabilishmentData } from '@/data/fakeData/EstabilishmentData';
 
 export interface Props {
 
 }
 
 export const Feed = (props: Props) => {
-  const [showNotifications, setShowNotifications] = React.useState<boolean>(false);
-
 
   return (
     <div className={Styles.feed}>
@@ -29,7 +27,11 @@ export const Feed = (props: Props) => {
           {
             estabilishmentData.map(item => {
               return (
-                <VEstabilishmentCard item={item} onSelect={() => {}}/>
+                <VEstabilishmentCard 
+                  key={item.id} 
+                  item={item} 
+                  onSelect={() => {}}
+                />
               )
             })
           }

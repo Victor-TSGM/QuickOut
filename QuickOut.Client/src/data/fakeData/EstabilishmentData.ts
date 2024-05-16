@@ -8,20 +8,22 @@ export const estabilishmentData : EstabilishmentViewModel[] = [
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua Safira, 575 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/geralt.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
   {
     id: 2,
-    name: 'Supermerrcado Vesemir',
+    name: 'Supermercado Vesemir',
     cnpj: '99.999.999/0001-99',
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua Esmeralda, 373 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/vesemir.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
   {
     id: 3,
@@ -30,9 +32,10 @@ export const estabilishmentData : EstabilishmentViewModel[] = [
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua Rubi, 23 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/merigold.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
   {
     id: 4,
@@ -41,9 +44,10 @@ export const estabilishmentData : EstabilishmentViewModel[] = [
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua Quartzo, 33 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/cirilla.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
   {
     id: 5,
@@ -52,9 +56,10 @@ export const estabilishmentData : EstabilishmentViewModel[] = [
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua Diamante, 373 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/preco.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
   {
     id: 6,
@@ -63,9 +68,10 @@ export const estabilishmentData : EstabilishmentViewModel[] = [
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua Cascalho, 373 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/king.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
   {
     id: 7,
@@ -74,9 +80,10 @@ export const estabilishmentData : EstabilishmentViewModel[] = [
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua Bronze, 373 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/alemao.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
   {
     id: 8,
@@ -85,9 +92,10 @@ export const estabilishmentData : EstabilishmentViewModel[] = [
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua Guimaria, 373 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/super.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
   {
     id: 9,
@@ -96,9 +104,10 @@ export const estabilishmentData : EstabilishmentViewModel[] = [
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua São Paulo, 373 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/dconfianca.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
   {
     id: 10,
@@ -107,8 +116,9 @@ export const estabilishmentData : EstabilishmentViewModel[] = [
     operationsStart: 6,
     operationsEnd: 21,
     address: 'Rua Italia, 373 - Sorocaba, SP',
-    logoType: '',
+    logoType: '/images/mercados/noel.png',
     status: 1,
-    rating: 4.5
+    rating: 4.5,
+    lastUpdatedDate: '10/05/2024'
   },
 ]

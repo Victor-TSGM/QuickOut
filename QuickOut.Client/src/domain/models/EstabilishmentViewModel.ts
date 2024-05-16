@@ -9,4 +9,5 @@ export class EstabilishmentViewModel {
   logoType?: string
   status: number
   rating: number
+  lastUpdatedDate: string
 }
