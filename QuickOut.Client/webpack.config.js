@@ -13,7 +13,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.scss'],
+    extensions: ['.ts', '.tsx', '.js', '.(s?)css'],
     alias: {
       '@': path.join(__dirname, 'src')
     }
@@ -30,7 +30,7 @@ module.exports = {
         exclude: /node-modules/
       },
       {
-        test: /\.scss$/,
+        test: /\.(s?)css$/,
         use: [
           {
             loader: 'style-loader'

@@ -1,0 +1,82 @@
+@import "../../../main/styles/colors.scss";
+
+.vnotification {
+  z-index: 999;
+  .icon {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fullNotification {
+    position: fixed;
+    background-color: $primary;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    height: 100vh;
+   
+    .header {
+      width: 100%;
+      height: 85px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .title {
+        font-size: 18px;
+        text-align: center;
+        color: $white;
+      }
+      .closeButton {
+        position: absolute;
+        background-color: transparent;
+        left: 25px;
+        border: none;
+        color: $white;
+
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+
+    .notificationList {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding: 2rem;
+
+      .notificationItem {
+        width: 90%;
+        padding: 1rem;
+        background-color: $white;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+
+        & p {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+        }
+
+        .notificationContent {
+          width: 100%;
+          height: auto;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

@@ -19,7 +19,8 @@
     },
     "resolveJsonModule": true
   },
-  "include": ["src", "tests"],
+  "include": ["src", "tests", "./src/**/*.ts","./src/**/*.tsx"],
+  
   "exclude": [
     "node_modules"
   ]

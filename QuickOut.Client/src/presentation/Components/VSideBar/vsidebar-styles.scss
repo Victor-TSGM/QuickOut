@@ -1,0 +1,74 @@
+@import "../../../main/styles/colors.scss";
+
+.vsidebar {
+  z-index: 999;
+
+  .icon {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fullSideBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background-color: $primary;
+    animation: normal;
+    transition: 200ms;
+
+    .sidebarHeader {
+      width: 100%;
+      height: 85px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      color: $white;
+      padding: 1rem;
+
+      .closeButton {
+        background-color: transparent;
+        border: none;
+        color: white;
+
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+    
+    .sidebarItemList {
+      width: 100%;
+      height: 100%;
+      
+      .sidebarItem {
+        width: 100%;
+        height: 45px;
+        font-size: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        padding: 1rem;
+        align-items: center;
+        color: $white;
+
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+
+    .sidebarFooter {
+      width: 100%;
+      height: 64px;
+      border: 1px solid white;
+      bottom: 0;
+    }
+  }
+}
