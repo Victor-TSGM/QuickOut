@@ -2,37 +2,14 @@ import * as React from 'react';
 import * as Styles from './vbanner-styles.scss';
 import { BannerViewModel } from '@/domain/models/BannerViewModel';
 import Slider from "react-slick";
+import { bannersData } from '@/data/fakeData/BannerData';
 
 export interface Props {
 
 }
 
-const bannersData: BannerViewModel[] = [
-  {
-    id: 1,
-    title: 'QuickOutPlus',
-    image: './images/banner01.png',
-    sourceLink: ''
-  },
-  {
-    id: 2,
-    title: 'QuickOutPlus',
-    image: './images/banner02.png',
-    sourceLink: ''
-  },
-  {
-    id: 3,
-    title: 'QuickOutPlus',
-    image: './images/banner03.png',
-    sourceLink: ''
-  }
-]
-
 export const VBanner = (props: Props) => {
-  const [currentBanner, setCurrentBanner] = React.useState<number>(1);
-
-
-
+  
   const renderBanners = (items: BannerViewModel[]) => {
     var settings = {
       dots: true,

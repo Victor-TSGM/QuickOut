@@ -3,6 +3,8 @@ import * as Styles from './feed-styles.scss';
 import { VSideBar } from '@/presentation/Components/VSideBar/VSideBar';
 import { VNotification } from '@/presentation/Components/VNotification/VNotification';
 import { VBanner } from '@/presentation/Components/VBanner/VBanner';
+import { estabilishmentData } from '@/data/fakeData/EstabilishmentData';
+import { VEstabilishmentCard } from '@/presentation/Components/VEstabilishmentCard/VEstabilishmentCard';
 
 export interface Props {
 
@@ -21,9 +23,19 @@ export const Feed = (props: Props) => {
       <div className={Styles.banners}>
         <VBanner />
       </div>
-
-      {/* ícone de menu  e ícone de notificação*/}
-
+      <div className={Styles.contentConainer}>
+        <h1 className={Styles.contentTitle}>Veja os estabelecimentos da sua cidade</h1>
+        <div className={Styles.content}>
+          {
+            estabilishmentData.map(item => {
+              return (
+                <VEstabilishmentCard item={item} onSelect={() => {}}/>
+              )
+            })
+          }
+        </div>
+      </div>
+      <div className={Styles.nav}></div>
     </div>
   );
 }
