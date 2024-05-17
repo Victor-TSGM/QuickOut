@@ -1,0 +1,58 @@
+@import "../../../main/styles/colors.scss";
+
+.vnavbar {
+  width: 100%;
+  height: 65px;
+  background-color: $primary;
+  border-radius: 20px;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 35% 16.25% 16.25% 16.25% 16.25%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  color: $white;
+
+  .startButton {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: $white;
+    background-color: $secondary;
+    font-family: ChollaSans, sans-serif;
+
+    p {
+      font-size: 22px;
+    }
+  }
+
+  .navButton {
+    background-color: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    outline: none !important;
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+    
+    &:active, 
+    &:focus {
+      outline: none !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    &:hover {
+      color: #bc8d73;
+    }
+  }
+}

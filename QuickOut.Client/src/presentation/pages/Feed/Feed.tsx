@@ -5,6 +5,7 @@ import { VNotification } from '@/presentation/Components/VNotification/VNotifica
 import { VBanner } from '@/presentation/Components/VBanner/VBanner';
 import { VEstabilishmentCard } from '@/presentation/Components/VEstabilishmentCard/VEstabilishmentCard';
 import { estabilishmentData } from '@/data/fakeData/EstabilishmentData';
+import VNavBar from '@/presentation/Components/VNavBar/VNavBar';
 
 export interface Props {
 
@@ -37,7 +38,9 @@ export const Feed = (props: Props) => {
           }
         </div>
       </div>
-      <div className={Styles.nav}></div>
+      <div className={Styles.nav}>
+        <VNavBar />
+      </div>
     </div>
   );
 }

@@ -17,6 +17,8 @@
     .banner {
       height: 100%;
       display: flex;
+      border-radius: 8px;
+      overflow: hidden;
       flex-direction: row;
       cursor: pointer;
       border-radius: 8px;
@@ -26,9 +28,7 @@
         
         img {
           width: 100%;
-
-          height: 200px;
-          border-radius: 10px;
+          height: 150px;
         }
       }
     }
