@@ -21,7 +21,7 @@ const VProductCard = (props: Props) => {
       <div className={Styles.promotion}>
         <img src="/images/promotionicon.png" alt="" style={{width: '20px', height: '20px'}}/>
         &ensp;
-        <p>R$ {props.item.price - promotionData[0].promotionValue}</p>
+        <p>R$ {(props.item.price - promotionData[0].promotionValue).toFixed(2)}</p>
       </div>
     )
   }
@@ -30,7 +30,7 @@ const VProductCard = (props: Props) => {
       <img src={props.item.imageUrl} alt={props.item.name} />
       <p className={Styles.name}>{props.item.name}</p>
       <div className={Styles.price}>
-        <p className={Styles.value}>R$ {props.item.price}</p>
+        <p className={Styles.value}>R$ {props.item.price.toFixed(2)}</p>
         {renderPromotionThumb()}
       </div>
     </div>

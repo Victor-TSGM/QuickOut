@@ -12,11 +12,11 @@ export const productData : ProductViewModel[] = [
 
 // Padaria
 { id: 8, promotionId: 1,name: 'Pão Francês', description: 'Pão crocante', barcode: 7891234567897, weight: 0.05, establishmentId: 1, categoryId: 2, price: 0.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Pao.png' },
-{ id: 9, name: 'Pão de Queijo', description: 'Pão de queijo mineiro', barcode: 7891234567898, weight: 0.1, establishmentId: 1, categoryId: 2, price: 1.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Pao.png' },
+{ id: 9, name: 'Pão de Queijo', description: 'Pão de queijo mineiro', barcode: 7891234567898, weight: 0.1, establishmentId: 1, categoryId: 2, price: 1.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/PaoQueijo.png' },
 { id: 10, promotionId: 1,name: 'Croissant', description: 'Croissant francês', barcode: 7891234567899, weight: 0.08, establishmentId: 1, categoryId: 2, price: 2.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Croissant.png' },
 { id: 11, name: 'Baguete', description: 'Pão estilo francês', barcode: 7891234567900, weight: 0.2, establishmentId: 1, categoryId: 2, price: 3.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Baguete.png' },
-{ id: 12, name: 'Pão Integral', description: 'Pão saudável', barcode: 7891234567901, weight: 0.25, establishmentId: 1, categoryId: 2, price: 4.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Pao.png' },
-{ id: 13, promotionId: 1,name: 'Pão de Forma', description: 'Pão macio', barcode: 7891234567902, weight: 0.5, establishmentId: 1, categoryId: 2, price: 5.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Pao.png' },
+{ id: 12, name: 'Pão Integral', description: 'Pão saudável', barcode: 7891234567901, weight: 0.25, establishmentId: 1, categoryId: 2, price: 4.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/PaoIntegral.png' },
+{ id: 13, promotionId: 1,name: 'Pão de Forma', description: 'Pão macio', barcode: 7891234567902, weight: 0.5, establishmentId: 1, categoryId: 2, price: 5.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/PaoForma.png' },
 { id: 14, name: 'Bolo de Chocolate', description: 'Bolo delicioso', barcode: 7891234567903, weight: 1.0, establishmentId: 1, categoryId: 2, price: 9.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Bolo.png' },
 
 // Hortifruti
@@ -35,7 +35,7 @@ export const productData : ProductViewModel[] = [
 { id: 25, promotionId: 1,name: 'Requeijão', description: 'Requeijão cremoso', barcode: 7891234567914, weight: 0.3, establishmentId: 1, categoryId: 4, price: 5.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Requeijao.png' },
 { id: 26, name: 'Manteiga', description: 'Manteiga com sal', barcode: 7891234567915, weight: 0.2, establishmentId: 1, categoryId: 4, price: 6.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Manteiga.png' },
 { id: 27, promotionId: 1,name: 'Creme de Leite', description: 'Creme de leite fresco', barcode: 7891234567916, weight: 0.2, establishmentId: 1, categoryId: 4, price: 4.49, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Creme.png' },
-{ id: 28, name: 'Leite Condensado', description: 'Leite condensado doce', barcode: 7891234567917, weight: 0.4, establishmentId: 1, categoryId: 4, price: 4.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Leite.png' },
+{ id: 28, name: 'Leite Condensado', description: 'Leite condensado doce', barcode: 7891234567917, weight: 0.4, establishmentId: 1, categoryId: 4, price: 4.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/LeiteCondesado.png' },
 
 // Bebidas
 { id: 29, name: 'Água Mineral', description: 'Água mineral sem gás', barcode: 7891234567918, weight: 1.5, establishmentId: 1, categoryId: 5, price: 2.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Agua.png' },
@@ -50,7 +50,7 @@ export const productData : ProductViewModel[] = [
 { id: 36,promotionId: 1, name: 'Detergente', description: 'Detergente líquido', barcode: 7891234567925, weight: 0.5, establishmentId: 1, categoryId: 6, price: 3.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Detergente.png' },
 { id: 37, name: 'Sabão em Pó', description: 'Sabão em pó para roupas', barcode: 7891234567926, weight: 1.0, establishmentId: 1, categoryId: 6, price: 8.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Sabao.png' },
 { id: 38, name: 'Desinfetante', description: 'Desinfetante floral', barcode: 7891234567927, weight: 0.75, establishmentId: 1, categoryId: 6, price: 4.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Desinfetante.png' },
-{ id: 39, promotionId: 1,name: 'Água Sanitária', description: 'Água sanitária', barcode: 7891234567928, weight: 2.0, establishmentId: 1, categoryId: 6, price: 3.49, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Agua.png' },
+{ id: 39, promotionId: 1,name: 'Água Sanitária', description: 'Água sanitária', barcode: 7891234567928, weight: 2.0, establishmentId: 1, categoryId: 6, price: 3.49, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/AguaSanitaria.png' },
 { id: 40, name: 'Esponja', description: 'Esponja dupla face', barcode: 7891234567929, weight: 0.1, establishmentId: 1, categoryId: 6, price: 2.49, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Esponja.png' },
 { id: 41,promotionId: 1, name: 'Lustra Móveis', description: 'Lustra móveis com brilho', barcode: 7891234567930, weight: 0.5, establishmentId: 1, categoryId: 6, price: 7.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Lustra.png' },
 { id: 42, name: 'Saco de Lixo', description: 'Saco de lixo 50L', barcode: 7891234567931, weight: 0.5, establishmentId: 1, categoryId: 6, price: 5.99, availableQuantity: Math.floor(Math.random() * 100), imageUrl: '/images/products/Saco.png' },

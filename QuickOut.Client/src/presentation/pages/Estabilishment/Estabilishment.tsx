@@ -50,7 +50,7 @@ const Estabilishment = (props: Props) => {
     }
 
     if (searchValue != '') {
-      auxProducts = products.filter(x => x.name.toLowerCase().includes(searchValue))
+      auxProducts = products.filter(x => x.name.toLowerCase().includes(searchValue.toLowerCase()))
     }
 
     return (
